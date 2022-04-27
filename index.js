@@ -35,8 +35,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
     try {
         await client.connect();
-        const serviceCollection = client.db('geniusCar').collection('service');
-        const orderCollection = client.db('geniusCar').collection('order');
+        const serviceCollection = client.db(process.env.DB).collection('service');
+        const orderCollection = client.db(process.env.DB).collection('order');
 
         // AUTH
         app.post('/login', async (req, res) => {
